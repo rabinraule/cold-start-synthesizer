@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: local_mongodb_10
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - workspace_net
+
+
+networks:
+  workspace_net:
+    driver: bridge
+
+volumes:
+  mongo_data:
